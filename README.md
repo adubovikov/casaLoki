@@ -17,7 +17,6 @@ WITH CLUSTERING ORDER BY (name ASC, labels ASC)
         AND gc_grace_seconds = 60
         AND compaction = {'compaction_window_size': '120','compaction_window_unit': 'MINUTES', 'class': 'org.apache.cassandra.db.compaction.TimeWindowCompactionStrategy' };
 
-```
 CREATE TABLE samples (
     shardid varchar,    
     uuid timeuuid,
