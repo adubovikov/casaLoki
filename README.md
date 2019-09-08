@@ -31,7 +31,19 @@ CREATE TABLE samples (
     AND compaction = {'compaction_window_size': '120','compaction_window_unit': 'MINUTES', 'class': 'org.apache.cassandra.db.compaction.TimeWindowCompactionStrategy' };
 
 
+CREATE INDEX samples_fingerprint ON loki.samples (fingerprint);
+
+cqlsh:loki> insert into time_series(name, labels, fingerprint) VALUES ('cpu','{"__name__":"up"}',7975981685167825999);
+cqlsh:loki> select * from time_series ;
+
+ name | labels            | fingerprint
+------+-------------------+---------------------
+  cpu | {"__name__":"up"} | 7975981685167825999
+
+(1 rows)
+
+
 ```
 
-CREATE INDEX samples_fingerprint ON loki.samples (fingerprint);
+
 
