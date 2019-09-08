@@ -46,4 +46,11 @@ cqlsh:loki> select * from time_series ;
 ```
 
 
+insert into time_series(name, labels, fingerprint) VALUES ('side','{"__name__":"side","foo":ar"","TnMFeLL7eU1Xbx02":"JTwtk7BMr0WK27Bw"}',377426);
+insert into time_series(name, labels, fingerprint) VALUES ('side','{"__name__":"side","foo":ar"","1vmeFtcafWhSFNLl":"Tqnj1KUjQX9PjPHs"}',677544);
+insert into time_series(name, labels, fingerprint) VALUES ('side','{"__name__":"side","foo":ar"","Cq3uqHeqdtgfNVIB":"AOM1qzazkj659nqX"}',1657813);
+insert into time_series(name, labels, fingerprint) VALUES ('side','{"__name__":"side","foo":ar"","vRfU3gTmxA13hOwo":"0JUkJLzqCP1dmtGZ"}',2829541);
+insert into time_series(name, labels, fingerprint) VALUES ('side','{"__name__":"side","foo":ar"","99LjqgLYKIaKTQ0z":"DiCB0FdKbRH4J9JX"}',3154186);
+insert into time_series(name, labels, fingerprint) VALUES ('side','{"__name__":"side","foo":ar"","UPJPsQliJgQX0wmM":"qlBskt3zZhkBIewq"}',3194976);
+
 
