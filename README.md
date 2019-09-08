@@ -33,3 +33,6 @@ CREATE TABLE samples (
 
 
 ```
+
+CREATE INDEX samples_fingerprint ON loki.samples (fingerprint);
+
