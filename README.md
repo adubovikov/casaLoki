@@ -4,13 +4,12 @@ CREATE KEYSPACE IF NOT EXISTS loki WITH replication = {'class': 'SimpleStrategy'
 ### Database Schema
 ```sql
 CREATE TABLE time_series (
-    shardid varchar,    
     name varchar,
     labels varchar,    
     fingerprint bigint,
-    PRIMARY KEY (shardid, name, labels)
+    PRIMARY KEY (name, labels)
 )
-WITH CLUSTERING ORDER BY (name ASC, labels ASC)
+WITH CLUSTERING ORDER BY (labels ASC)
         AND bloom_filter_fp_chance = 0.01
         AND caching = {'keys':'ALL', 'rows_per_partition':'NONE'}
         AND comment = 'timeseries'
