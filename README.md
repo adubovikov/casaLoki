@@ -47,20 +47,20 @@ cqlsh:loki> select * from time_series ;
 
 ```
 
-insert into time_series(name, labels, fingerprint) VALUES ('side','{"__name__":"side","foo":ar"","TnMFeLL7eU1Xbx02":"JTwtk7BMr0WK27Bw"}',377426);
-insert into time_series(name, labels, fingerprint) VALUES ('side','{"__name__":"side","foo":ar"","1vmeFtcafWhSFNLl":"Tqnj1KUjQX9PjPHs"}',677544);
-insert into time_series(name, labels, fingerprint) VALUES ('side','{"__name__":"side","foo":ar"","Cq3uqHeqdtgfNVIB":"AOM1qzazkj659nqX"}',1657813);
-insert into time_series(name, labels, fingerprint) VALUES ('side','{"__name__":"side","foo":ar"","vRfU3gTmxA13hOwo":"0JUkJLzqCP1dmtGZ"}',2829541);
-insert into time_series(name, labels, fingerprint) VALUES ('side','{"__name__":"side","foo":ar"","99LjqgLYKIaKTQ0z":"DiCB0FdKbRH4J9JX"}',3154186);
-insert into time_series(name, labels, fingerprint) VALUES ('side','{"__name__":"side","foo":ar"","UPJPsQliJgQX0wmM":"qlBskt3zZhkBIewq"}',3194976);
+insert into time_series(name, labels, fingerprint) VALUES ('cpu','{"__name__":"side","foo":ar"","TnMFeLL7eU1Xbx02":"JTwtk7BMr0WK27Bw"}',377426);
+insert into time_series(name, labels, fingerprint) VALUES ('cpu','{"__name__":"side","foo":ar"","1vmeFtcafWhSFNLl":"Tqnj1KUjQX9PjPHs"}',677544);
+insert into time_series(name, labels, fingerprint) VALUES ('cpu','{"__name__":"side","foo":ar"","Cq3uqHeqdtgfNVIB":"AOM1qzazkj659nqX"}',1657813);
+insert into time_series(name, labels, fingerprint) VALUES ('cpu','{"__name__":"side","foo":ar"","vRfU3gTmxA13hOwo":"0JUkJLzqCP1dmtGZ"}',2829541);
+insert into time_series(name, labels, fingerprint) VALUES ('cpu','{"__name__":"side","foo":ar"","99LjqgLYKIaKTQ0z":"DiCB0FdKbRH4J9JX"}',3154186);
+insert into time_series(name, labels, fingerprint) VALUES ('cpu','{"__name__":"side","foo":ar"","UPJPsQliJgQX0wmM":"qlBskt3zZhkBIewq"}',3194976);
 
 
 
-insert into samples(shardid, uuid, fingerprint, string, value) VALUES ('20190908', 0518a510-d23d-11e9-8664-b74cfc9ea5ad, 377426, 'fffffaaabbbbbb',0);
-insert into samples(shardid, uuid, fingerprint, string, value) VALUES ('20190908', 051a04a0-d23d-11e9-8664-b74cfc9ea5ad, 677544, 'fffffaaabbbbbb',0);
-insert into samples(shardid, uuid, fingerprint, string, value) VALUES ('20190908', 051b6430-d23d-11e9-8664-b74cfc9ea5ad, 1657813, 'fffffaaabbbbbb',0);
-insert into samples(shardid, uuid, fingerprint, string, value) VALUES ('20190908', 051cc3c0-d23d-11e9-8664-b74cfc9ea5ad, 2829541, 'fffffaaabbbbbb',0);
-insert into samples(shardid, uuid, fingerprint, string, value) VALUES ('20190908', 051dfc40-d23d-11e9-8664-b74cfc9ea5ad, 3194976, 'fffffaaabbbbbb',0);
+insert into samples(shardid, uuid, fingerprint, string, value) VALUES ('cpu_20190908', 0518a510-d23d-11e9-8664-b74cfc9ea5ad, 377426, 'fffffaaabbbbbb',0);
+insert into samples(shardid, uuid, fingerprint, string, value) VALUES ('cpu_20190908', 051a04a0-d23d-11e9-8664-b74cfc9ea5ad, 677544, 'fffffaaabbbbbb',0);
+insert into samples(shardid, uuid, fingerprint, string, value) VALUES ('cpu_20190908', 051b6430-d23d-11e9-8664-b74cfc9ea5ad, 1657813, 'fffffaaabbbbbb',0);
+insert into samples(shardid, uuid, fingerprint, string, value) VALUES ('cpu_20190908', 051cc3c0-d23d-11e9-8664-b74cfc9ea5ad, 2829541, 'fffffaaabbbbbb',0);
+insert into samples(shardid, uuid, fingerprint, string, value) VALUES ('cpu_20190908', 051dfc40-d23d-11e9-8664-b74cfc9ea5ad, 3194976, 'fffffaaabbbbbb',0);
 ```
 
 
