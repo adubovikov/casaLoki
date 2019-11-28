@@ -18,11 +18,12 @@ WITH CLUSTERING ORDER BY (labels ASC)
 
 CREATE TABLE samples (
     shardid varchar,    
+    name varchar,
     uuid timeuuid,
     fingerprint bigint,
     value float,
     string varchar,
-    PRIMARY KEY (shardid, uuid)
+    PRIMARY KEY (shardid, name, uuid)
 ) WITH CLUSTERING ORDER BY (uuid ASC, fingerprint)
     AND bloom_filter_fp_chance = 0.01
     AND caching = {'keys':'ALL', 'rows_per_partition':'NONE'}
@@ -56,11 +57,11 @@ insert into time_series(name, labels, fingerprint) VALUES ('cpu','{"__name__":"s
 
 
 
-insert into samples(shardid, uuid, fingerprint, string, value) VALUES ('cpu_20190908', 0518a510-d23d-11e9-8664-b74cfc9ea5ad, 377426, 'fffffaaabbbbbb',0);
-insert into samples(shardid, uuid, fingerprint, string, value) VALUES ('cpu_20190908', 051a04a0-d23d-11e9-8664-b74cfc9ea5ad, 677544, 'fffffaaabbbbbb',0);
-insert into samples(shardid, uuid, fingerprint, string, value) VALUES ('cpu_20190908', 051b6430-d23d-11e9-8664-b74cfc9ea5ad, 1657813, 'fffffaaabbbbbb',0);
-insert into samples(shardid, uuid, fingerprint, string, value) VALUES ('cpu_20190908', 051cc3c0-d23d-11e9-8664-b74cfc9ea5ad, 2829541, 'fffffaaabbbbbb',0);
-insert into samples(shardid, uuid, fingerprint, string, value) VALUES ('cpu_20190908', 051dfc40-d23d-11e9-8664-b74cfc9ea5ad, 3194976, 'fffffaaabbbbbb',0);
+insert into samples(shardid, name, uuid, fingerprint, string, value) VALUES ('20190908', 'cpu', 0518a510-d23d-11e9-8664-b74cfc9ea5ad, 377426, 'fffffaaabbbbbb',0);
+insert into samples(shardid, name, uuid, fingerprint, string, value) VALUES ('20190908', 'cpu', 051a04a0-d23d-11e9-8664-b74cfc9ea5ad, 677544, 'fffffaaabbbbbb',0);
+insert into samples(shardid, name, uuid, fingerprint, string, value) VALUES ('20190908', 'cpu', 051b6430-d23d-11e9-8664-b74cfc9ea5ad, 1657813, 'fffffaaabbbbbb',0);
+insert into samples(shardid, name, uuid, fingerprint, string, value) VALUES ('20190908', 'cpu', 051cc3c0-d23d-11e9-8664-b74cfc9ea5ad, 2829541, 'fffffaaabbbbbb',0);
+insert into samples(shardid, name, uuid, fingerprint, string, value) VALUES ('20190908', 'cpu', 051dfc40-d23d-11e9-8664-b74cfc9ea5ad, 3194976, 'fffffaaabbbbbb',0);
 ```
 
 
