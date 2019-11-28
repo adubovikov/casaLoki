@@ -23,7 +23,7 @@ CREATE TABLE samples (
     value float,
     string varchar,
     PRIMARY KEY (shardid, uuid)
-) WITH CLUSTERING ORDER BY (uuid ASC, fingerprint)
+) WITH CLUSTERING ORDER BY (uuid ASC)
     AND bloom_filter_fp_chance = 0.01
     AND caching = {'keys':'ALL', 'rows_per_partition':'NONE'}
     AND comment = 'samples'
