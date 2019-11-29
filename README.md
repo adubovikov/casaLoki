@@ -47,12 +47,12 @@ cqlsh:loki> select * from time_series ;
 
 ```
 
-insert into time_series(name, labels, fingerprint) VALUES ('cpu','{"__name__":"side","foo":ar"","TnMFeLL7eU1Xbx02":"JTwtk7BMr0WK27Bw"}',377426);
-insert into time_series(name, labels, fingerprint) VALUES ('cpu','{"__name__":"side","foo":ar"","1vmeFtcafWhSFNLl":"Tqnj1KUjQX9PjPHs"}',677544);
-insert into time_series(name, labels, fingerprint) VALUES ('cpu','{"__name__":"side","foo":ar"","Cq3uqHeqdtgfNVIB":"AOM1qzazkj659nqX"}',1657813);
-insert into time_series(name, labels, fingerprint) VALUES ('cpu','{"__name__":"side","foo":ar"","vRfU3gTmxA13hOwo":"0JUkJLzqCP1dmtGZ"}',2829541);
-insert into time_series(name, labels, fingerprint) VALUES ('cpu','{"__name__":"side","foo":ar"","99LjqgLYKIaKTQ0z":"DiCB0FdKbRH4J9JX"}',3154186);
-insert into time_series(name, labels, fingerprint) VALUES ('cpu','{"__name__":"side","foo":ar"","UPJPsQliJgQX0wmM":"qlBskt3zZhkBIewq"}',3194976);
+insert into time_series(name, labels, fingerprint) VALUES ('cpu','{"__name__":"side","foo":"ar","TnMFeLL7eU1Xbx02":"JTwtk7BMr0WK27Bw"}',377426);
+insert into time_series(name, labels, fingerprint) VALUES ('cpu','{"__name__":"side","foo":"ar","1vmeFtcafWhSFNLl":"Tqnj1KUjQX9PjPHs"}',677544);
+insert into time_series(name, labels, fingerprint) VALUES ('cpu','{"__name__":"side","foo":"ar","Cq3uqHeqdtgfNVIB":"AOM1qzazkj659nqX"}',1657813);
+insert into time_series(name, labels, fingerprint) VALUES ('cpu','{"__name__":"side","foo":"ar","vRfU3gTmxA13hOwo":"0JUkJLzqCP1dmtGZ"}',2829541);
+insert into time_series(name, labels, fingerprint) VALUES ('cpu','{"__name__":"side","foo":"ar","99LjqgLYKIaKTQ0z":"DiCB0FdKbRH4J9JX"}',3154186);
+insert into time_series(name, labels, fingerprint) VALUES ('cpu','{"__name__":"side","foo":"ar","UPJPsQliJgQX0wmM":"qlBskt3zZhkBIewq"}',3194976);
 
 
 
@@ -63,5 +63,29 @@ insert into samples(shardid, uuid, fingerprint, string, value) VALUES ('cpu_2019
 insert into samples(shardid, uuid, fingerprint, string, value) VALUES ('cpu_20190908', 051dfc40-d23d-11e9-8664-b74cfc9ea5ad, 3194976, 'fffffaaabbbbbb',0);
 ```
 
+
+Another way:
+
+```
+CREATE TABLE time_series (
+    name varchar,
+    labels map<text, text>,
+    fingerprint bigint,
+    PRIMARY KEY (name)
+)
+WITH bloom_filter_fp_chance = 0.01
+        AND caching = {'keys':'ALL', 'rows_per_partition':'NONE'}
+        AND comment = 'timeseries'
+        AND gc_grace_seconds = 60
+        AND compaction = {'compaction_window_size': '120','compaction_window_unit': 'MINUTES', 'class': 'org.apache.cassandra.db.compaction.TimeWindowCompactionStrategy' };
+
+CREATE INDEX time_series_index ON time_series (ENTRIES(labels));
+
+```
+and inserts:
+
+```
+insert into time_series2 JSON '{"name":"cpu","labels":{"__name__":"side","foo":"ar","UPJPsQliJgQX0wmM":"qlBskt3zZhkBIewq"},"fingerprint":3194976}';
+```
 
 
