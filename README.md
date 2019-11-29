@@ -85,7 +85,7 @@ CREATE INDEX time_series_index ON time_series (ENTRIES(labels));
 and inserts:
 
 ```
-insert into time_series2 JSON '{"name":"cpu","labels":{"__name__":"side","foo":"ar","UPJPsQliJgQX0wmM":"qlBskt3zZhkBIewq"},"fingerprint":3194976}';
+insert into time_series JSON '{"name":"cpu","labels":{"__name__":"side","foo":"ar","UPJPsQliJgQX0wmM":"qlBskt3zZhkBIewq"},"fingerprint":3194976}';
 ```
 
 
