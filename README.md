@@ -88,4 +88,15 @@ and inserts:
 insert into time_series JSON '{"name":"cpu","labels":{"__name__":"side","foo":"ar","UPJPsQliJgQX0wmM":"qlBskt3zZhkBIewq"},"fingerprint":3194976}';
 ```
 
+SELECT
+```
+(0 rows)
+cqlsh> select * from time_series2 WHERE labels['foo'] = 'ar';
 
+ name | fingerprint | labels
+------+-------------+---------------------------------------------------------------------------
+  cpu |     3194976 | {'UPJPsQliJgQX0wmM': 'qlBskt3zZhkBIewq', '__name__': 'side', 'foo': 'ar'}
+
+(1 rows)
+
+```
