@@ -100,3 +100,14 @@ cqlsh> select * from time_series2 WHERE labels['foo'] = 'ar';
 (1 rows)
 
 ```
+
+```
+cqlsh> select * from time_series2 WHERE name = 'cpu' AND labels['foo'] = 'ar' AND labels['__name__'] = 'side' ALLOW FILTERING;
+
+ name | fingerprint | labels
+------+-------------+---------------------------------------------------------------------------
+  cpu |     3194976 | {'UPJPsQliJgQX0wmM': 'qlBskt3zZhkBIewq', '__name__': 'side', 'foo': 'ar'}
+
+(1 rows)
+
+```
