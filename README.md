@@ -116,38 +116,38 @@ ANOTHER PART:
 ```
 CREATE TABLE measurement_by_counter (    
     counter text,
-    measurment text,
-    PRIMARY KEY (measurment, counter)
+    measurement text,
+    PRIMARY KEY (measurement, counter)
 );
 
 CREATE TABLE counter_by_tag (
     tag text,    
     counter text,
-    measurment text,
-    PRIMARY KEY (measurment, counter, tag)
+    measurement text,
+    PRIMARY KEY (measurement, counter, tag)
 );
 
 CREATE TABLE tag_by_value (
     value text,
     tag text,
     counter text,
-    measurment text,
+    measurement text,
     PRIMARY KEY (measurement, counter, tag, value)
 );
 
-insert into tag_by_value (value, tag, counter, measurment) VALUES ('de3','tag1','cpu','side');
-insert into tag_by_value (value, tag, counter, measurment) VALUES ('de4','tag1','cpu','side');
-insert into tag_by_value (value, tag, counter, measurment) VALUES ('de6','tag2','cpu','side');
-insert into tag_by_value (value, tag, counter, measurment) VALUES ('de6','tag2','cpu','side');
-insert into tag_by_value (value, tag, counter, measurment) VALUES ('de6','tag2','cpu','side');
+insert into tag_by_value (value, tag, counter, measurement) VALUES ('de3','tag1','cpu','side');
+insert into tag_by_value (value, tag, counter, measurement) VALUES ('de4','tag1','cpu','side');
+insert into tag_by_value (value, tag, counter, measurement) VALUES ('de6','tag2','cpu','side');
+insert into tag_by_value (value, tag, counter, measurement) VALUES ('de6','tag2','cpu','side');
+insert into tag_by_value (value, tag, counter, measurement) VALUES ('de6','tag2','cpu','side');
 
-insert into counter_by_tag (tag,counter, measurment) VALUES ('tag1','cpu','side');
-insert into counter_by_tag (tag,counter, measurment) VALUES ('tag2','cpu','side');
-insert into counter_by_tag (tag,counter, measurment) VALUES ('tag4','cpu','side');
+insert into counter_by_tag (tag,counter, measurement) VALUES ('tag1','cpu','side');
+insert into counter_by_tag (tag,counter, measurement) VALUES ('tag2','cpu','side');
+insert into counter_by_tag (tag,counter, measurement) VALUES ('tag4','cpu','side');
 
-insert into measurement_by_counter (counter, measurment) VALUES ('cpu','side');
-insert into measurement_by_counter (counter, measurment) VALUES ('cpu1','side');
-insert into measurement_by_counter (counter, measurment) VALUES ('cpu2','side');
+insert into measurement_by_counter (counter, measurement) VALUES ('cpu','side');
+insert into measurement_by_counter (counter, measurement) VALUES ('cpu1','side');
+insert into measurement_by_counter (counter, measurement) VALUES ('cpu2','side');
 
 ```
 
