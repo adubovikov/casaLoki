@@ -114,6 +114,12 @@ cqlsh> select * from time_series2 WHERE name = 'cpu' AND labels['foo'] = 'ar' AN
 
 ANOTHER PART:
 ```
+CREATE TABLE measurement_by_counter (    
+    counter text,
+    measurment text,
+    PRIMARY KEY (measurment, counter)
+);
+
 CREATE TABLE counter_by_tag (
     tag text,    
     counter text,
@@ -138,6 +144,10 @@ insert into tag_by_value (value, tag, counter, measurment) VALUES ('de6','tag2',
 insert into counter_by_tag (tag,counter, measurment) VALUES ('tag1','cpu','side');
 insert into counter_by_tag (tag,counter, measurment) VALUES ('tag2','cpu','side');
 insert into counter_by_tag (tag,counter, measurment) VALUES ('tag4','cpu','side');
+
+insert into measurement_by_counter (counter, measurment) VALUES ('cpu','side');
+insert into measurement_by_counter (counter, measurment) VALUES ('cpu1','side');
+insert into measurement_by_counter (counter, measurment) VALUES ('cpu2','side');
 
 ```
 
