@@ -111,3 +111,32 @@ cqlsh> select * from time_series2 WHERE name = 'cpu' AND labels['foo'] = 'ar' AN
 (1 rows)
 
 ```
+
+ANOTHER PART:
+```
+CREATE TABLE counter_by_tag (
+    tag text,
+    counter text,
+    PRIMARY KEY (counter, tag)
+);
+
+CREATE TABLE tag_by_value (
+    value text,
+    tag text,
+    counter text,
+    PRIMARY KEY (counter, tag, value)
+);
+
+insert into tag_by_value (value, tag, counter) VALUES ('de3','tag1','cpu');
+insert into tag_by_value (value, tag, counter) VALUES ('de4','tag1','cpu');
+insert into tag_by_value (value, tag, counter) VALUES ('de6','tag2','cpu');
+insert into tag_by_value (value, tag, counter) VALUES ('de6','tag2','cpu');
+insert into tag_by_value (value, tag, counter) VALUES ('de6','tag2','cpu');
+
+insert into counter_by_tag (tag,counter) VALUES ('tag1','cpu');
+insert into counter_by_tag (tag,counter) VALUES ('tag2','cpu');
+insert into counter_by_tag (tag,counter) VALUES ('tag4','cpu');
+
+```
+
+
